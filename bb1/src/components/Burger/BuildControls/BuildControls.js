@@ -17,6 +17,10 @@ const BuildControls = (props) => {
           this,
           control.type
         )}
+        deleteIngredientHandler={props.deleteIngredientHandler.bind(
+          this,
+          control.type
+        )}
         label={control.label}
         key={control.type}
       />
