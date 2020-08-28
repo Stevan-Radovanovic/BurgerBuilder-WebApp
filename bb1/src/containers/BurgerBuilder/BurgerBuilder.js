@@ -21,6 +21,7 @@ class BurgerBuilder extends Component {
     },
     price: 2.6,
     purchasable: true,
+    modalActive: false,
   };
 
   addIngredientHandler = (type) => {
@@ -35,6 +36,12 @@ class BurgerBuilder extends Component {
 
     let newPrice = this.state.price + INGREDIENT_PRICES[type];
     this.setState({ price: newPrice });
+  };
+
+  modalHandler = () => {
+    const modal = this.state.modalActive;
+    console.log(modal);
+    this.setState({ modalActive: !modal });
   };
 
   updatePurchasable(newIngredients) {
@@ -65,15 +72,18 @@ class BurgerBuilder extends Component {
   render() {
     return (
       <React.Fragment>
-        <Modal>
-          <OrderSummary ingredients={this.state.ingredients} />
-        </Modal>
+        {this.state.modalActive ? (
+          <Modal>
+            <OrderSummary ingredients={this.state.ingredients} />
+          </Modal>
+        ) : null}
         <Burger ingredients={this.state.ingredients} />
         <BuildControls
           addIngredientHandler={this.addIngredientHandler}
           deleteIngredientHandler={this.deleteIngredientHandler}
           price={this.state.price}
           disabledOrder={this.state.purchasable}
+          modal={this.modalHandler}
         />
       </React.Fragment>
     );

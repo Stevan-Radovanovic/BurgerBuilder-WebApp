@@ -31,7 +31,11 @@ const BuildControls = (props) => {
     <div className={classes.BuildControls}>
       <p className={classes.Price}>Total Price: {props.price.toFixed(2)}$</p>
       {renderingControls}
-      <button disabled={!props.disabledOrder} className={classes.OrderButton}>
+      <button
+        disabled={!props.disabledOrder}
+        className={classes.OrderButton}
+        onClick={props.modal}
+      >
         ORDER NOW
       </button>
     </div>
