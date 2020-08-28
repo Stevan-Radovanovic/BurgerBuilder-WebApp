@@ -3,7 +3,7 @@ import classes from './BuildControl.module.css';
 const BuildControl = (props) => {
   return (
     <div className={classes.BuildControl}>
-      <div>{props.label}</div>
+      <div className={classes.label}>{props.label}</div>
       <button>-</button>
       <button>+</button>
     </div>
