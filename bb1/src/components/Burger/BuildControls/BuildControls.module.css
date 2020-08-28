@@ -4,11 +4,19 @@
   flex-flow: column;
   align-items: center;
   margin: auto;
-  padding: 10px 0;
+  padding: 6px 0;
   box-shadow: 0 2px 1px #ccc;
   background-color: #9e8c24;
 }
 
 .Price {
   font-weight: bold;
+}
+
+.OrderButton {
+  padding: 5px;
+  margin: 0 5px;
+  width: 110px;
+  cursor: pointer;
+  background-color: #f08e4a;
 }
