@@ -4,6 +4,7 @@
   margin: auto;
   text-align: center;
   font-weight: bold;
+  overflow-y: scroll;
 }
 
 @media (min-width: 1000px) and (min-height: 700px) {
