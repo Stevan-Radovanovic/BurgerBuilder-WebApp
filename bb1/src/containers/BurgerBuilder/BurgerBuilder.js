@@ -18,6 +18,7 @@ class BurgerBuilder extends Component {
       meat: 1,
     },
     price: 2.6,
+    purchasable: true,
   };
 
   addIngredientHandler = (type) => {
@@ -28,10 +29,20 @@ class BurgerBuilder extends Component {
     };
     newIngredients[type] = updatedCount;
     this.setState({ ingredients: newIngredients });
+    this.updatePurchasable(newIngredients);
 
     let newPrice = this.state.price + INGREDIENT_PRICES[type];
     this.setState({ price: newPrice });
   };
+
+  updatePurchasable(newIngredients) {
+    const isItForPurchase =
+      newIngredients['bacon'] +
+      newIngredients['meat'] +
+      newIngredients['salad'] +
+      newIngredients['cheese'];
+    this.setState({ purchasable: isItForPurchase > 0 });
+  }
 
   deleteIngredientHandler = (type) => {
     const count = this.state.ingredients[type];
@@ -43,6 +54,7 @@ class BurgerBuilder extends Component {
     };
     newIngredients[type] = updatedCount;
     this.setState({ ingredients: newIngredients });
+    this.updatePurchasable(newIngredients);
 
     let newPrice = this.state.price - INGREDIENT_PRICES[type];
     this.setState({ price: newPrice });
@@ -56,6 +68,7 @@ class BurgerBuilder extends Component {
           addIngredientHandler={this.addIngredientHandler}
           deleteIngredientHandler={this.deleteIngredientHandler}
           price={this.state.price}
+          disabledOrder={this.state.purchasable}
         />
       </React.Fragment>
     );
