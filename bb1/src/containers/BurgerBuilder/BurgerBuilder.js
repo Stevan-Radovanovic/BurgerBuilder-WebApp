@@ -63,6 +63,7 @@ class BurgerBuilder extends Component {
   render() {
     return (
       <React.Fragment>
+        <Modal>Modal Component</Modal>
         <Burger ingredients={this.state.ingredients} />
         <BuildControls
           addIngredientHandler={this.addIngredientHandler}
