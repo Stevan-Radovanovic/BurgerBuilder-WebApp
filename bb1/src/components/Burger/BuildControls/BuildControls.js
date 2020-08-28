@@ -27,7 +27,12 @@ const BuildControls = (props) => {
     );
   });
 
-  return <div className={classes.BuildControls}>{renderingControls}</div>;
+  return (
+    <div className={classes.BuildControls}>
+      <p className={classes.Price}>Total Price: {props.price.toFixed(2)}$</p>
+      {renderingControls}
+    </div>
+  );
 };
 
 export default BuildControls;
