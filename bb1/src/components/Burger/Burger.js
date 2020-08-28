@@ -10,7 +10,8 @@ const Burger = (props) => {
   );
 
   const ingredientsLength = ingredients.reduce((arr, el) => arr.concat(el));
-  if (ingredientsLength === 0) {
+  console.log(ingredientsLength);
+  if (ingredientsLength.length === 0) {
     ingredients = <p>Empty? You better add some ingredients</p>;
   }
 
