@@ -11,7 +11,16 @@ const controls = [
 
 const BuildControls = (props) => {
   const renderingControls = controls.map((control) => {
-    return <BuildControl label={control.label} key={control.type} />;
+    return (
+      <BuildControl
+        addIngredientHandler={props.addIngredientHandler.bind(
+          this,
+          control.type
+        )}
+        label={control.label}
+        key={control.type}
+      />
+    );
   });
 
   return <div className={classes.BuildControls}>{renderingControls}</div>;
