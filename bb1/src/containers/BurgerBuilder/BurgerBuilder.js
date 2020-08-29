@@ -74,7 +74,11 @@ class BurgerBuilder extends Component {
       <React.Fragment>
         {this.state.modalActive ? (
           <Modal modalHandler={this.modalHandler}>
-            <OrderSummary ingredients={this.state.ingredients} />
+            <OrderSummary
+              ingredients={this.state.ingredients}
+              price={this.state.price}
+              click={this.modalHandler}
+            />
           </Modal>
         ) : null}
         <Burger ingredients={this.state.ingredients} />
