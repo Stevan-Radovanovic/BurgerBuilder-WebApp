@@ -5,13 +5,13 @@
   list-style: none;
   display: flex;
   align-items: center;
+  flex-flow: column;
 }
 
 .NavItems li {
-  display: flex;
-  height: 100%;
-  align-items: center;
-  margin: 0 4px;
+  display: block;
+  width: 100%;
+  margin: 10px 0;
   box-sizing: border-box;
 }
 
@@ -19,13 +19,37 @@
   text-decoration: none;
   color: black;
   display: block;
-  height: 100%;
-  padding: 16px 10px;
-  border-bottom: 4px solid transparent;
+  width: 100%;
   box-sizing: border-box;
 }
 
 .NavItems li a:active {
   border-bottom: 4px solid black;
   background-color: white;
+}
+
+@media (min-width: 500px) {
+  .NavItems {
+    flex-flow: row;
+  }
+
+  .NavItems li {
+    display: flex;
+    height: 100%;
+    width: auto;
+    align-items: center;
+    margin: 0 4px;
+  }
+
+  .NavItems li a {
+    color: black;
+    height: 100%;
+    padding: 16px 10px;
+    border-bottom: 4px solid transparent;
+  }
+
+  .NavItems li a:active {
+    border-bottom: 4px solid black;
+    background-color: white;
+  }
 }

@@ -6,6 +6,9 @@ const SideDrawer = (props) => {
   return (
     <div className={classes.SideDrawer}>
       <nav>
+        <p>
+          <strong>Side Menu</strong>
+        </p>
         <NavItems />
       </nav>
     </div>
