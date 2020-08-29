@@ -3,6 +3,7 @@ import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
+import Backdrop from '../../components/Backdrop/Backdrop';
 
 const INGREDIENT_PRICES = {
   salad: 0.4,
@@ -73,9 +74,12 @@ class BurgerBuilder extends Component {
     return (
       <React.Fragment>
         {this.state.modalActive ? (
-          <Modal>
-            <OrderSummary ingredients={this.state.ingredients} />
-          </Modal>
+          <React.Fragment>
+            <Modal>
+              <OrderSummary ingredients={this.state.ingredients} />
+            </Modal>
+            <Backdrop />
+          </React.Fragment>
         ) : null}
         <Burger ingredients={this.state.ingredients} />
         <BuildControls
