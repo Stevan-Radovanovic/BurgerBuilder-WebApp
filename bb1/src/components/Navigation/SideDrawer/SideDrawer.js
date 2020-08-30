@@ -9,9 +9,14 @@ const SideDrawer = (props) => {
     attached = [classes.SideDrawer, classes.Open];
   }
 
+  let backdrop = null;
+  if (props.open) {
+    backdrop = <Backdrop clicked={props.clicked} />;
+  }
+
   return (
     <React.Fragment>
-      <Backdrop clicked={props.clicked} />
+      {backdrop}
       <div className={attached.join(' ')}>
         <nav>
           <p>

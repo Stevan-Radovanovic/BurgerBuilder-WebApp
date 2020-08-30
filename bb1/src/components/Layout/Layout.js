@@ -5,18 +5,19 @@ import SideDrawer from '../Navigation/SideDrawer/SideDrawer';
 
 class Layout extends Component {
   state = {
-    sideDrawerVisible: true,
+    sideDrawerVisible: false,
   };
 
   sideDrawHandler = () => {
     const visible = this.state.sideDrawerVisible;
     this.setState({ sideDrawerVisible: !visible });
+    console.log('Changed to ' + !visible);
   };
 
   render() {
     return (
       <React.Fragment>
-        <Toolbar />
+        <Toolbar clicked={this.sideDrawHandler} />
         <SideDrawer
           clicked={this.sideDrawHandler}
           open={this.state.sideDrawerVisible}

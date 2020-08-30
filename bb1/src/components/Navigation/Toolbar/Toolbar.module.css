@@ -17,8 +17,29 @@
   height: 100%;
 }
 
+.Toolbar div {
+  height: 100%;
+  cursor: pointer;
+}
+
+.Toolbar div:active {
+  background-color: white;
+}
+
+.Small {
+  display: none;
+}
+
 @media (max-width: 500px) {
   .Toolbar nav {
     display: none;
+  }
+
+  .Big {
+    display: none;
+  }
+
+  .Small {
+    display: block;
   }
 }
