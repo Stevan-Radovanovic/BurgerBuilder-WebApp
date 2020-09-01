@@ -4,6 +4,7 @@ import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 import axios from '../../axios/axios-orders';
+import Spinner from '../../components/UI/Spinner/Spinner';
 
 const INGREDIENT_PRICES = {
   salad: 0.4,
