@@ -28,6 +28,15 @@ class BurgerBuilder extends Component {
     loading: false,
   };
 
+  async componentDidMount() {
+    try {
+      const result = await axios.get('/orders');
+      console.log(result.data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   addIngredientHandler = (type) => {
     const count = this.state.ingredients[type];
     const updatedCount = count + 1;
@@ -44,7 +53,6 @@ class BurgerBuilder extends Component {
 
   modalHandler = () => {
     const modal = this.state.modalActive;
-    console.log(modal);
     this.setState({ modalActive: !modal });
   };
 
