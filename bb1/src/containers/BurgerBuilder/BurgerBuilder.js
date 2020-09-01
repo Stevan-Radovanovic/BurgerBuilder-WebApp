@@ -3,6 +3,7 @@ import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
+import axios from '../../axios/axios-orders';
 
 const INGREDIENT_PRICES = {
   salad: 0.4,
@@ -44,14 +45,14 @@ class BurgerBuilder extends Component {
     this.setState({ modalActive: !modal });
   };
 
-  updatePurchasable(newIngredients) {
+  updatePurchasable = (newIngredients) => {
     const isItForPurchase =
       newIngredients['bacon'] +
       newIngredients['meat'] +
       newIngredients['salad'] +
       newIngredients['cheese'];
     this.setState({ purchasable: isItForPurchase > 0 });
-  }
+  };
 
   deleteIngredientHandler = (type) => {
     const count = this.state.ingredients[type];
@@ -69,6 +70,22 @@ class BurgerBuilder extends Component {
     this.setState({ price: newPrice });
   };
 
+  postOrderHandler = async () => {
+    const order = {
+      saladCount: this.state.ingredients['salad'],
+      meatCount: this.state.ingredients['meat'],
+      baconCount: this.state.ingredients['bacon'],
+      cheeseCount: this.state.ingredients['cheese'],
+      price: this.state.price.toFixed(2),
+    };
+    try {
+      const result = await axios.post('/orders', order);
+      console.log(result);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -78,6 +95,7 @@ class BurgerBuilder extends Component {
               ingredients={this.state.ingredients}
               price={this.state.price}
               click={this.modalHandler}
+              order={this.postOrderHandler}
             />
           </Modal>
         ) : null}

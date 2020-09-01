@@ -30,6 +30,6 @@ sequelize
   })
   .then((res) => {
     console.log('BurgerBuilder started...');
-    app.listen(3000);
+    app.listen(1738);
   })
   .catch((err) => console.log(err));

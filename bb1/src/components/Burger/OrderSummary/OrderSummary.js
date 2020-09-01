@@ -22,7 +22,7 @@ const OrderSummary = (props) => {
         <button className={classes.Cancel} onClick={props.click}>
           CANCEL
         </button>
-        <button className={classes.Continue} onClick={props.click}>
+        <button className={classes.Continue} onClick={props.order}>
           CONTINUE
         </button>
       </div>

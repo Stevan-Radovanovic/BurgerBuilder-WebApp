@@ -1,7 +1,7 @@
-import axios from "axios"
+import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: "http://localhost3000/burger/orders"
-})
+  baseURL: 'http://localhost:1738/burger',
+});
 
 export default instance;
