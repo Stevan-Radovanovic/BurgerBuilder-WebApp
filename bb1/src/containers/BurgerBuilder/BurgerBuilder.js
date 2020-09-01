@@ -24,6 +24,7 @@ class BurgerBuilder extends Component {
     price: 2.6,
     purchasable: true,
     modalActive: false,
+    loading: false,
   };
 
   addIngredientHandler = (type) => {
@@ -72,6 +73,7 @@ class BurgerBuilder extends Component {
   };
 
   postOrderHandler = async () => {
+    this.setState({ loading: true });
     const order = {
       saladCount: this.state.ingredients['salad'],
       meatCount: this.state.ingredients['meat'],
@@ -85,20 +87,27 @@ class BurgerBuilder extends Component {
     } catch (err) {
       console.log(err);
     }
+    this.setState({ loading: false });
+    this.modalHandler();
   };
 
   render() {
+    let orderSummary = (
+      <OrderSummary
+        ingredients={this.state.ingredients}
+        price={this.state.price}
+        click={this.modalHandler}
+        order={this.postOrderHandler}
+      />
+    );
+    if (this.state.loading) {
+      orderSummary = <Spinner />;
+    }
+
     return (
       <React.Fragment>
         {this.state.modalActive ? (
-          <Modal modalHandler={this.modalHandler}>
-            <OrderSummary
-              ingredients={this.state.ingredients}
-              price={this.state.price}
-              click={this.modalHandler}
-              order={this.postOrderHandler}
-            />
-          </Modal>
+          <Modal modalHandler={this.modalHandler}>{orderSummary}</Modal>
         ) : null}
         <Burger ingredients={this.state.ingredients} />
         <BuildControls
