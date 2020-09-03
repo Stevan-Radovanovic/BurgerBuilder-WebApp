@@ -82,6 +82,7 @@ class BurgerBuilder extends Component {
   };
 
   postOrderHandler = async () => {
+    /*
     this.setState({ loading: true });
     const order = {
       saladCount: this.state.ingredients['salad'],
@@ -98,6 +99,8 @@ class BurgerBuilder extends Component {
     }
     this.setState({ loading: false });
     this.modalHandler();
+    */
+    this.props.history.push('/checkout');
   };
 
   render() {
