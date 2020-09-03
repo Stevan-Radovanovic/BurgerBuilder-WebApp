@@ -1,0 +1,23 @@
+.Cancel {
+  color: #c41f1f;
+  margin-right: 11px;
+  font-weight: bold;
+}
+
+.Continue {
+  color: #59b11f;
+  font-weight: bold;
+}
+
+.CheckoutSummary {
+  text-align: cemnter;
+  width: 80%;
+  text-align: center;
+  margin: auto;
+}
+
+@media (min-width: 600px) {
+  .CheckoutSummary {
+    width: 500px;
+  }
+}
