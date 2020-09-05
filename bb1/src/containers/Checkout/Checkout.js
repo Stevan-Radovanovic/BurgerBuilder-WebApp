@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CheckoutSummary from '../../components/Order/CheckoutSummary/CheckoutSummary';
+import { withRouter } from 'react-router-dom';
 
 class Checkout extends Component {
   state = {
@@ -10,6 +11,19 @@ class Checkout extends Component {
       bacon: 1,
     },
   };
+
+  componentDidMount() {
+    let query = this.props.location.search;
+    query = query.substr(1);
+    const querySplit = query.split('&');
+    const ingredients = {};
+    for (const i of querySplit) {
+      const ing = i.split('=');
+      ingredients[ing[0]] = +ing[1];
+    }
+    console.log(ingredients);
+    this.setState({ ingredients: ingredients });
+  }
 
   goBackHandler = () => {
     this.props.history.goBack();
@@ -32,4 +46,4 @@ class Checkout extends Component {
   }
 }
 
-export default Checkout;
+export default withRouter(Checkout);
