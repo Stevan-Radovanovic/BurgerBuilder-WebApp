@@ -6,12 +6,20 @@ const NavItems = (props) => {
   return (
     <ul className={classes.NavItems}>
       <li>
-        <NavLink activeClassName={classes.active} to="/burger">
+        <NavLink
+          onClick={props.clicked}
+          activeClassName={classes.active}
+          to="/burger"
+        >
           Builder
         </NavLink>
       </li>
       <li>
-        <NavLink activeClassName={classes.active} to="/orders">
+        <NavLink
+          onClick={props.clicked}
+          activeClassName={classes.active}
+          to="/orders"
+        >
           Orders
         </NavLink>
       </li>

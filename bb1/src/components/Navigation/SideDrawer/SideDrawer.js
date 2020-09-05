@@ -22,7 +22,7 @@ const SideDrawer = (props) => {
           <p>
             <strong>Side Menu</strong>
           </p>
-          <NavItems />
+          <NavItems clicked={props.clicked} />
         </nav>
       </div>
     </React.Fragment>
