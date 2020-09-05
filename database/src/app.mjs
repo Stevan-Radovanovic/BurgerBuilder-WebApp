@@ -2,6 +2,7 @@ import Express from 'express';
 import sequelize from './data/database.mjs';
 import Body from 'body-parser';
 import Order from './models/order-model.mjs';
+import Contact from './models/contact-model.mjs';
 
 import OrderRoutes from './routes/order-routes.mjs';
 
@@ -22,11 +23,18 @@ app.use((req, res, next) => {
 
 app.use(Body.json());
 
+Order.belongsTo(Contact, {
+  foreignKey: { allowNull: true },
+  onUpdate: 'CASCADE',
+  onDelete: 'CASCADE',
+});
+Contact.hasMany(Order);
+
 app.use('/burger/orders', OrderRoutes);
 
 sequelize
   .sync({
-    /* force: true */
+    /*force: true,*/
   })
   .then((res) => {
     console.log('BurgerBuilder started...');
