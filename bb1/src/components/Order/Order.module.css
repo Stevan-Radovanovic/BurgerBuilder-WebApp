@@ -6,3 +6,10 @@
   margin: 10px auto;
   padding: 10px;
 }
+
+.Ingredient {
+  display: inline-block;
+  border: 1px solid #ccc;
+  background-color: #eee;
+  margin: 4px 7px;
+}

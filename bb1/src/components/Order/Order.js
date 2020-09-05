@@ -5,10 +5,13 @@ const Order = (props) => {
   return (
     <div className={classes.Order}>
       <h4>Order no. {props.order.id}</h4>
-      <p>Salad Count: {props.order.saladCount}</p>
-      <p>Meat Count: {props.order.meatCount}</p>
-      <p>Bacon Count: {props.order.baconCount}</p>
-      <p>Cheese Count: {props.order.cheeseCount}</p>
+      <p style={{ display: 'inline-block', margin: '4px 4px' }}>
+        Ingredients:{' '}
+      </p>
+      <p className={classes.Ingredient}>Salad: {props.order.saladCount}</p>
+      <p className={classes.Ingredient}>Meat: {props.order.meatCount}</p>
+      <p className={classes.Ingredient}>Bacon: {props.order.baconCount}</p>
+      <p className={classes.Ingredient}>Cheese: {props.order.cheeseCount}</p>
       <p>
         Total Price: <strong>{props.order.price}</strong>
       </p>
