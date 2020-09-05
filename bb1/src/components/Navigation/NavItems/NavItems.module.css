@@ -23,7 +23,7 @@
   box-sizing: border-box;
 }
 
-.NavItems li a:active {
+.NavItems li a.active {
   border-bottom: 4px solid black;
   background-color: white;
 }
@@ -48,7 +48,7 @@
     border-bottom: 4px solid transparent;
   }
 
-  .NavItems li a:active {
+  .NavItems li a.active {
     border-bottom: 4px solid black;
     background-color: white;
   }

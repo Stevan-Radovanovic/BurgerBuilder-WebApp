@@ -6,10 +6,14 @@ const NavItems = (props) => {
   return (
     <ul className={classes.NavItems}>
       <li>
-        <NavLink to="/burger">Builder</NavLink>
+        <NavLink activeClassName={classes.active} to="/burger">
+          Builder
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/orders">Orders</NavLink>
+        <NavLink activeClassName={classes.active} to="/orders">
+          Orders
+        </NavLink>
       </li>
     </ul>
   );
