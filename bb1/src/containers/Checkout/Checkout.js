@@ -11,6 +11,7 @@ class Checkout extends Component {
       cheese: 1,
       bacon: 1,
     },
+    price: 0,
   };
 
   componentDidMount() {
@@ -18,12 +19,17 @@ class Checkout extends Component {
     query = query.substr(1);
     const querySplit = query.split('&');
     const ingredients = {};
+    let price = 0;
     for (const i of querySplit) {
       const ing = i.split('=');
+      if (ing[0] === 'price') {
+        price = +ing[1];
+        continue;
+      }
       ingredients[ing[0]] = +ing[1];
     }
     console.log(ingredients);
-    this.setState({ ingredients: ingredients });
+    this.setState({ ingredients: ingredients, price: price });
   }
 
   goBackHandler = () => {
@@ -43,7 +49,12 @@ class Checkout extends Component {
           order={this.continueHandler}
         />
         <Route
-          component={ContactData}
+          render={() => (
+            <ContactData
+              ingredients={this.state.ingredients}
+              price={this.state.price}
+            />
+          )}
           path={this.props.match.path + '/contact'}
         />
       </div>

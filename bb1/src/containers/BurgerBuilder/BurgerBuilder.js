@@ -82,24 +82,6 @@ class BurgerBuilder extends Component {
   };
 
   postOrderHandler = async () => {
-    /*
-    this.setState({ loading: true });
-    const order = {
-      saladCount: this.state.ingredients['salad'],
-      meatCount: this.state.ingredients['meat'],
-      baconCount: this.state.ingredients['bacon'],
-      cheeseCount: this.state.ingredients['cheese'],
-      price: this.state.price.toFixed(2),
-    };
-    try {
-      const result = await axios.post('/orders', order);
-      console.log(result);
-    } catch (err) {
-      console.log(err);
-    }
-    this.setState({ loading: false });
-    this.modalHandler();
-    */
     const queryParams = [];
     for (let i in this.state.ingredients) {
       queryParams.push(
@@ -108,6 +90,7 @@ class BurgerBuilder extends Component {
           encodeURIComponent(this.state.ingredients[i])
       );
     }
+    queryParams.push('price=' + this.state.price);
     const queryString = queryParams.join('&');
     this.props.history.push({
       pathname: '/checkout',

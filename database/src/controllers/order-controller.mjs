@@ -1,4 +1,5 @@
 import Order from '../models/order-model.mjs';
+import Contact from '../models/order-model.mjs';
 
 const getOrders = async (req, res, next) => {
   try {
@@ -17,6 +18,7 @@ const postOrder = async (req, res, next) => {
       baconCount: req.body.baconCount,
       cheeseCount: req.body.cheeseCount,
       price: req.body.price,
+      contactId: req.body.contactId ? req.body.contactId : null,
     });
     res.json({ message: 'New order created', order: result });
   } catch (err) {
