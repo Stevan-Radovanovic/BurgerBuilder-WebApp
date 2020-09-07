@@ -17,3 +17,8 @@
   display: block;
   width: 90%;
 }
+
+.Input input:focus {
+  background-color: #eee;
+  border-color: #e27b36;
+}
