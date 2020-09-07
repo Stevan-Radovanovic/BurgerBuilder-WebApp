@@ -7,11 +7,39 @@ import Input from '../../../components/UI/Input/Input';
 
 class ContactData extends Component {
   state = {
-    contact: {
-      name: '',
-      email: '',
-      city: '',
-      street: '',
+    orderForm: {
+      name: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'text',
+          label: 'Your name: ',
+        },
+        value: '',
+      },
+      email: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'email',
+          label: 'Your E-mail: ',
+        },
+        value: '',
+      },
+      city: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'text',
+          label: 'Your city: ',
+        },
+        value: '',
+      },
+      street: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'text',
+          label: 'Your street: ',
+        },
+        value: '',
+      },
     },
     loading: false,
   };
