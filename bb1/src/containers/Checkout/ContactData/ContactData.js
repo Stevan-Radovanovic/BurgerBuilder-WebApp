@@ -3,6 +3,7 @@ import classes from './ContactData.module.css';
 import axios from '../../../axios/axios-orders';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 import { withRouter } from 'react-router-dom';
+import Input from '../../../components/UI/Input/Input';
 
 class ContactData extends Component {
   state = {
@@ -39,10 +40,10 @@ class ContactData extends Component {
   render() {
     let form = (
       <form>
-        <input type="text" name="name" placeholder="Your Name" />
-        <input type="email" name="email" placeholder="Your Email" />
-        <input type="text" name="street" placeholder="Your Street" />
-        <input type="text" name="city" placeholder="Your City" />
+        <Input label="Name" type="text" name="name" />
+        <Input label="E-mail" type="email" name="email" />
+        <Input label="Street" type="text" name="street" />
+        <Input label="City" type="text" name="city" />
         <button onClick={this.orderHandler}>Order now!</button>
       </form>
     );
