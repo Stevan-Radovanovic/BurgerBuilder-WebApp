@@ -12,7 +12,8 @@ class ContactData extends Component {
         elementType: 'input',
         elementConfig: {
           type: 'text',
-          label: 'Your name: ',
+          label: 'Your Name: ',
+          placeholder: 'Enter here...',
         },
         value: '',
       },
@@ -21,6 +22,7 @@ class ContactData extends Component {
         elementConfig: {
           type: 'email',
           label: 'Your E-mail: ',
+          placeholder: 'Enter here...',
         },
         value: '',
       },
@@ -28,7 +30,8 @@ class ContactData extends Component {
         elementType: 'input',
         elementConfig: {
           type: 'text',
-          label: 'Your city: ',
+          label: 'Your City: ',
+          placeholder: 'Enter here...',
         },
         value: '',
       },
@@ -36,7 +39,8 @@ class ContactData extends Component {
         elementType: 'input',
         elementConfig: {
           type: 'text',
-          label: 'Your street: ',
+          label: 'Your Street: ',
+          placeholder: 'Enter here...',
         },
         value: '',
       },
